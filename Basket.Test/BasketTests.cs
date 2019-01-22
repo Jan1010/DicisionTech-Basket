@@ -98,5 +98,24 @@ namespace Basket.Test
             //Assert
             Assert.AreEqual(bread.Price + butter.Price, total);
         }
+
+        [TestMethod]
+        public void GivenBreadButterAndMilk_WhenTotalCalculated_ThenTotalShould_2_95()
+        {
+            //Arrange
+            var basket = new Basket();
+            var bread = new Product { Name = "bread", Price = 1.00m };
+            var butter = new Product { Name = "butter", Price = 0.80m };
+            var milk = new Product { Name = "milk", Price = 1.15m };
+            basket.AddProduct(bread);
+            basket.AddProduct(butter);
+            basket.AddProduct(milk);
+
+            //Act
+            var total = basket.GetTotal();
+
+            //Assert
+            Assert.AreEqual(2.95m, total);
+        }
     }
 }
