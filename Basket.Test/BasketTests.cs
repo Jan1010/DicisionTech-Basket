@@ -158,7 +158,7 @@ namespace Basket.Test
         public void Given2Butter1BreadAnd8Milks_WhenTotalCalculated_ThenTotalShould_9_00()
         {
             //Arrange
-            var basket = new Basket(new List<IOffer> { new ThreeMilkGetFourthForFreeOffer() });
+            var basket = new Basket(new List<IOffer> { new TwoButtersHalfPriceBreadOffer(), new ThreeMilkGetFourthForFreeOffer() });
             basket.AddProduct(StaticProductCatalog.Butter);
             basket.AddProduct(StaticProductCatalog.Butter);
             basket.AddProduct(StaticProductCatalog.Bread);

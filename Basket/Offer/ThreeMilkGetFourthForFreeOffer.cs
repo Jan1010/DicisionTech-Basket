@@ -9,7 +9,8 @@ namespace Basket.Offer
         {
             if (products.Count(t => t.Name == StaticProductCatalog.Milk.Name) > 3)
             {
-                return StaticProductCatalog.Milk.Price;
+                var freeMilkCount = products.Count(t => t.Name == StaticProductCatalog.Milk.Name) / 4;
+                return StaticProductCatalog.Milk.Price * freeMilkCount;
             }
             return 0;
         }
