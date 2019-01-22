@@ -11,7 +11,7 @@ namespace Basket.Test
         {
             //Arrange
             var basket = new Basket();
-            var butter = new Product { Name = "butter", Price = 0.80m };
+            var butter = StaticProductCatalog.Butter;
 
             //Act
             basket.AddProduct(butter);
@@ -26,8 +26,8 @@ namespace Basket.Test
         {
             //Arrange
             var basket = new Basket();
-            var butter = new Product { Name = "butter", Price = 0.80m };
-            var milk = new Product { Name = "milk", Price = 1.15m };
+            var butter = StaticProductCatalog.Butter;
+            var milk = StaticProductCatalog.Milk;
 
             //Act
             basket.AddProduct(butter);
@@ -56,7 +56,7 @@ namespace Basket.Test
         {
             //Arrange
             var basket = new Basket();
-            var bread = new Product { Name = "bread", Price = 1.00m };
+            var bread = StaticProductCatalog.Bread;
 
             //Act
             basket.AddProduct(bread);
@@ -72,7 +72,7 @@ namespace Basket.Test
         {
             //Arrange
             var basket = new Basket();
-            var bread = new Product { Name = "bread", Price = 1.00m };
+            var bread = StaticProductCatalog.Bread;
             basket.AddProduct(bread);
 
             //Act
@@ -87,8 +87,8 @@ namespace Basket.Test
         {
             //Arrange
             var basket = new Basket();
-            var bread = new Product { Name = "bread", Price = 1.00m };
-            var butter = new Product { Name = "butter", Price = 0.80m };
+            var bread = StaticProductCatalog.Bread;
+            var butter = StaticProductCatalog.Butter;
             basket.AddProduct(bread);
             basket.AddProduct(butter);
 
@@ -104,9 +104,9 @@ namespace Basket.Test
         {
             //Arrange
             var basket = new Basket();
-            var bread = new Product { Name = "bread", Price = 1.00m };
-            var butter = new Product { Name = "butter", Price = 0.80m };
-            var milk = new Product { Name = "milk", Price = 1.15m };
+            var bread = StaticProductCatalog.Bread;
+            var butter = StaticProductCatalog.Butter;
+            var milk = StaticProductCatalog.Milk;
             basket.AddProduct(bread);
             basket.AddProduct(butter);
             basket.AddProduct(milk);
