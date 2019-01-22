@@ -13,5 +13,10 @@ namespace Basket
         {
             _items.Add(product);
         }
+
+        public decimal GetTotal(Basket basket)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

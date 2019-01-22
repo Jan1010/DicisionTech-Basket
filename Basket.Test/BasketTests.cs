@@ -11,7 +11,7 @@ namespace Basket.Test
         {
             //Arrange
             var basket = new Basket();
-            var butter = new Product { Name = "butter", Price = 0.8m };
+            var butter = new Product { Name = "butter", Price = 0.80m };
 
             //Act
             basket.AddProduct(butter);
@@ -26,7 +26,7 @@ namespace Basket.Test
         {
             //Arrange
             var basket = new Basket();
-            var butter = new Product { Name = "butter", Price = 0.8m };
+            var butter = new Product { Name = "butter", Price = 0.80m };
             var milk = new Product { Name = "milk", Price = 1.15m };
 
             //Act
@@ -52,7 +52,7 @@ namespace Basket.Test
         }
 
         [TestMethod]
-        public void GivenBreadProduct_WhenAddedTwiceToBasket_BasketShoudHaveTwoBreads()
+        public void GivenBreadProduct_WhenAddedTwiceToBasket_ThenBasketShoudHaveTwoBreads()
         {
             //Arrange
             var basket = new Basket();
@@ -65,6 +65,21 @@ namespace Basket.Test
             //Assert
             Assert.AreEqual(2, basket.Items.Count);
             Assert.IsTrue(basket.Items.All(t => t == bread));
+        }
+
+        [TestMethod]
+        public void GivenBasketWithBread_WhenTotalCalculated_ThenTotalShouldBeThePriceOfBread()
+        {
+            //Arrange
+            var basket = new Basket();
+            var bread = new Product { Name = "bread", Price = 1.00m };
+            basket.AddProduct(bread);
+
+            //Act
+            var total = basket.GetTotal(basket);
+
+            //Assert
+            Assert.AreEqual(1.00m, total);
         }
     }
 }
