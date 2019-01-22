@@ -76,7 +76,7 @@ namespace Basket.Test
             basket.AddProduct(bread);
 
             //Act
-            var total = basket.GetTotal(basket);
+            var total = basket.GetTotal();
 
             //Assert
             Assert.AreEqual(1.00m, total);

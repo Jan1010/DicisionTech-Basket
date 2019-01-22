@@ -14,7 +14,7 @@ namespace Basket
             _items.Add(product);
         }
 
-        public decimal GetTotal(Basket basket)
+        public decimal GetTotal()
         {
             throw new NotImplementedException();
         }
