@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Basket
 {
@@ -16,7 +17,7 @@ namespace Basket
 
         public decimal GetTotal()
         {
-            throw new NotImplementedException();
+            return _items.Sum(t => t.Price);
         }
     }
 }
