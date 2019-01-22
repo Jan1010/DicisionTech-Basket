@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// This class contains all available product types adn their prices
+    /// In real scenario loaded from persistent storage
     /// </summary>
     public class StaticProductCatalog
     {

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Basket.Offer
 {
@@ -9,6 +7,8 @@ namespace Basket.Offer
     {
         public decimal GetDiscount(IReadOnlyCollection<Product> products)
         {
+            // 4 Butter will not make 2 breads 50% discounted, but that is not explicit requirement
+            // Can be implemented if the requirement is clarified
             if (products.Count(t => t.Name == StaticProductCatalog.Butter.Name) > 1)
             {
                 if (products.Any(t => t.Name == StaticProductCatalog.Bread.Name))

@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Basket.Offer;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Basket.Offer;
 
 namespace Basket
 {
