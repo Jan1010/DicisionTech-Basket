@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Linq;
+using Basket.Offer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Basket.Test
@@ -10,7 +12,7 @@ namespace Basket.Test
         public void GivenButterProduct_WhenAddedToBasket_ThenItShouldBeInBasket()
         {
             //Arrange
-            var basket = new Basket();
+            var basket = new Basket(null);
             var butter = StaticProductCatalog.Butter;
 
             //Act
@@ -25,7 +27,7 @@ namespace Basket.Test
         public void GivenTwoProducts_WhenAddedToBasket_ThenBasketContainsThem()
         {
             //Arrange
-            var basket = new Basket();
+            var basket = new Basket(null);
             var butter = StaticProductCatalog.Butter;
             var milk = StaticProductCatalog.Milk;
 
@@ -43,7 +45,7 @@ namespace Basket.Test
         public void GivenEmptyBasket_WhenNothingIsAdded_ThenBasketHasZeroItems()
         {
             //Arrange
-            var basket = new Basket();
+            var basket = new Basket(null);
 
             //Act
 
@@ -55,7 +57,7 @@ namespace Basket.Test
         public void GivenBreadProduct_WhenAddedTwiceToBasket_ThenBasketShoudHaveTwoBreads()
         {
             //Arrange
-            var basket = new Basket();
+            var basket = new Basket(null);
             var bread = StaticProductCatalog.Bread;
 
             //Act
@@ -71,7 +73,7 @@ namespace Basket.Test
         public void GivenBasketWithBread_WhenTotalCalculated_ThenTotalShouldBeThePriceOfBread()
         {
             //Arrange
-            var basket = new Basket();
+            var basket = new Basket(new List<IOffer>());
             var bread = StaticProductCatalog.Bread;
             basket.AddProduct(bread);
 
@@ -86,7 +88,7 @@ namespace Basket.Test
         public void GivenBasketWithBreadAndButter_WhenTotalCalculated_ThenTotalShouldBeSumOfProductPrices()
         {
             //Arrange
-            var basket = new Basket();
+            var basket = new Basket(new List<IOffer>());
             var bread = StaticProductCatalog.Bread;
             var butter = StaticProductCatalog.Butter;
             basket.AddProduct(bread);
@@ -103,7 +105,7 @@ namespace Basket.Test
         public void GivenBreadButterAndMilk_WhenTotalCalculated_ThenTotalShould_2_95()
         {
             //Arrange
-            var basket = new Basket();
+            var basket = new Basket(new List<IOffer>());
             var bread = StaticProductCatalog.Bread;
             var butter = StaticProductCatalog.Butter;
             var milk = StaticProductCatalog.Milk;
@@ -122,7 +124,7 @@ namespace Basket.Test
         public void Given2ButterAnd2Bread_WhenTotalCalculated_ThenTotalShould_3_10()
         {
             //Arrange
-            var basket = new Basket();
+            var basket = new Basket(new List<IOffer> { new TwoButtersHalfPriceBreadOffer() });
             basket.AddProduct(StaticProductCatalog.Butter);
             basket.AddProduct(StaticProductCatalog.Butter);
             basket.AddProduct(StaticProductCatalog.Bread);
@@ -139,7 +141,7 @@ namespace Basket.Test
         public void Given4Milks_WhenTotalCalculated_ThenTotalShould_3_45()
         {
             //Arrange
-            var basket = new Basket();
+            var basket = new Basket(new List<IOffer> { new ThreeMilkGetFourthForFreeOffer() });
             basket.AddProduct(StaticProductCatalog.Milk);
             basket.AddProduct(StaticProductCatalog.Milk);
             basket.AddProduct(StaticProductCatalog.Milk);

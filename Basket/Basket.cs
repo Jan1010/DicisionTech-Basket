@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Basket.Offer;
 
 namespace Basket
 {
     public class Basket
     {
         private readonly List<Product> _items = new List<Product>();
+        private readonly IEnumerable<IOffer> _offers;
         public IReadOnlyCollection<Product> Items => new ReadOnlyCollection<Product>(_items);
+
+        public Basket(IEnumerable<IOffer> offers)
+        {
+            _offers = offers;
+        }
 
         public void AddProduct(Product product)
         {
@@ -18,16 +25,9 @@ namespace Basket
         public decimal GetTotal()
         {
             var total = _items.Sum(t => t.Price);
-            if (_items.Count(t => t.Name == StaticProductCatalog.Butter.Name) > 1)
+            foreach (var offer in _offers)
             {
-                if (_items.Any(t => t.Name == StaticProductCatalog.Bread.Name))
-                {
-                    total -= StaticProductCatalog.Bread.Price * 0.5m;
-                }
-            }
-            if (_items.Count(t => t.Name == StaticProductCatalog.Milk.Name) > 3)
-            {
-                total -= StaticProductCatalog.Milk.Price;
+                total -= offer.GetDiscount(_items);
             }
             return total;
         }
