@@ -134,5 +134,22 @@ namespace Basket.Test
             //Assert
             Assert.AreEqual(3.10m, total);
         }
+
+        [TestMethod]
+        public void Given4Milks_WhenTotalCalculated_ThenTotalShould_3_45()
+        {
+            //Arrange
+            var basket = new Basket();
+            basket.AddProduct(StaticProductCatalog.Milk);
+            basket.AddProduct(StaticProductCatalog.Milk);
+            basket.AddProduct(StaticProductCatalog.Milk);
+            basket.AddProduct(StaticProductCatalog.Milk);
+
+            //Act
+            var total = basket.GetTotal();
+
+            //Assert
+            Assert.AreEqual(3.45m, total);
+        }
     }
 }
