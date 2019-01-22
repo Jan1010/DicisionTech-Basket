@@ -25,6 +25,10 @@ namespace Basket
                     total -= StaticProductCatalog.Bread.Price * 0.5m;
                 }
             }
+            if (_items.Count(t => t.Name == StaticProductCatalog.Milk.Name) > 3)
+            {
+                total -= StaticProductCatalog.Milk.Price;
+            }
             return total;
         }
     }
