@@ -117,5 +117,22 @@ namespace Basket.Test
             //Assert
             Assert.AreEqual(2.95m, total);
         }
+
+        [TestMethod]
+        public void Given2ButterAnd2Bread_WhenTotalCalculated_ThenTotalShould_3_10()
+        {
+            //Arrange
+            var basket = new Basket();
+            basket.AddProduct(StaticProductCatalog.Butter);
+            basket.AddProduct(StaticProductCatalog.Butter);
+            basket.AddProduct(StaticProductCatalog.Bread);
+            basket.AddProduct(StaticProductCatalog.Bread);
+
+            //Act
+            var total = basket.GetTotal();
+
+            //Assert
+            Assert.AreEqual(3.10m, total);
+        }
     }
 }
