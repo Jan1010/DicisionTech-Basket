@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Basket
 {
     public class Basket
     {
-        public List<Product> Items { get; set; } = new List<Product>();
+        private readonly List<Product> _items = new List<Product>();
+        public IReadOnlyCollection<Product> Items => new ReadOnlyCollection<Product>(_items);
+
         public void AddProduct(Product product)
         {
-            Items.Add(product);
+            _items.Add(product);
         }
     }
 }
